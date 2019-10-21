@@ -26,6 +26,7 @@ Dies könnte man in 3 Schwierigkeitsstufen machen. „Leicht“, „Mittel“, �
 Neue PowerUp’s wären auch noch ein Feature was erweiterte werden kann, hier könnte eine neue Kategorie dazu kommen, welches sich Boost nennt. Beim Aufsammeln von Boost’s erfolgt ein Upgrade des Spielers, verschieden Boost fördern die Eigenschaften des Spielers entweder für eine gewisse Zeit oder für den Rest des Spieles. Diese Entscheidung hängt von der Art des Boost’s ab. 
 Beispielsweise, der Spieler kann durch Benutzung des Speed-Boosts x0.5- Fach schneller laufen als die anderen Spieler oder der Spieler kann mehr Schaden erzeugen.
 
-
-
+Must have?
+Should have?
+Nice to have?
 
