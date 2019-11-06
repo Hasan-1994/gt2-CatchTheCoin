@@ -15,6 +15,8 @@ public GlobalStateManager globalManager;
     public bool canMove = true;
     //Can the player move?
     public bool dead = false;
+    //Collect Points
+    public int points = 0;
 
 
     
@@ -148,13 +150,17 @@ public GlobalStateManager globalManager;
     /// </summary>
     private void DropBomb ()
     {
-        if (bombPrefab)
-        { //Bombs will be placed on the fields Mathf.RoundToInt()
-        Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x), 
-        bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
-        bombPrefab.transform.rotation);  
+        if(points == 3)
+        {
+            if (bombPrefab)
+            { //Bombs will be placed on the fields Mathf.RoundToInt()
+                Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+                bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+                bombPrefab.transform.rotation);
 
+            }
         }
+
     }
 
     public void OnTriggerEnter (Collider other)
@@ -163,11 +169,16 @@ public GlobalStateManager globalManager;
         {
             Debug.Log ("P" + playerNumber + " hit by explosion!");
                     dead = true; // 1
-globalManager.PlayerDied(playerNumber); // 2
+            globalManager.PlayerDied(playerNumber); // 2
 Destroy(gameObject); // 3 
         } 
 
     
     }
 
+    private void OnGUI()
+    {
+        
+        GUI.Label(new Rect(10, 10, 100, 20), "Coins : " + points);
+    }
 }
