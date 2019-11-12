@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SMScript : MonoBehaviour
 {
-    public void LoadScene() {
+    public void LoadGame() {
         SceneManager.LoadScene("Game");
+        
     } 
+    public void LoadDiscr()
+    {
+        SceneManager.LoadScene("Spielanleitung");
+    }
+    public void LoadStart()
+    {
+        SceneManager.LoadScene("StartPage");
+    }
 }

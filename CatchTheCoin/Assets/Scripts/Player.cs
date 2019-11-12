@@ -16,7 +16,7 @@ public GlobalStateManager globalManager;
     //Can the player move?
     public bool dead = false;
     //Collect Points
-    public int points = 0;
+    public int points;
 
 
     
@@ -148,19 +148,24 @@ public GlobalStateManager globalManager;
     /// <summary>
     /// Drops a bomb beneath the player
     /// </summary>
+    /// 
+
     private void DropBomb ()
     {
-        if(points == 3)
+        //NACHFRAGEN!!!
+        for (int i = 3; i <= 30; i= i+3)
         {
-            if (bombPrefab)
-            { //Bombs will be placed on the fields Mathf.RoundToInt()
-                Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
-                bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
-                bombPrefab.transform.rotation);
-
+            if (points == i)
+            {
+                if (bombPrefab)
+                { //Bombs will be placed on the fields Mathf.RoundToInt()
+                    Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+                    bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+                    bombPrefab.transform.rotation);
+                    points = points - 3;
+                }
             }
         }
-
     }
 
     public void OnTriggerEnter (Collider other)
@@ -178,7 +183,17 @@ Destroy(gameObject); // 3
 
     private void OnGUI()
     {
+        if(playerNumber == 1)
+        {
+            GUI.contentColor = Color.red;
+            GUI.Label(new Rect(20, 10, 100, 20), "Coins : " + points);
+        }
         
-        GUI.Label(new Rect(10, 10, 100, 20), "Coins : " + points);
+        if(playerNumber == 2)
+        {
+            GUI.contentColor = Color.black;
+            GUI.Label(new Rect(650, 10, 200, 20), "Coins : " + points);
+        }
+
     }
 }

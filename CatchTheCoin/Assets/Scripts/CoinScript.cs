@@ -25,10 +25,12 @@ public class CoinScript : MonoBehaviour
             other.GetComponent<Player>().points++;
             Destroy(gameObject);
         }
+
+        if (other.name == "Player 2")
+        {
+            other.GetComponent<Player>().points++;
+            Destroy(gameObject);
+        }
     }
 
-    void SpawnCoin()
-    {
-        var newCoin = GameObject.Instantiate(Coins);
-    }
 }
