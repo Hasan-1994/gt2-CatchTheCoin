@@ -5,11 +5,9 @@ using UnityEngine;
 public class CoinScript : MonoBehaviour
 {
     public GameObject Coins;
-    public float spawnTime = 3f;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("Coins",spawnTime, spawnTime);
     }
 
     // Update is called once per frame
@@ -20,7 +18,7 @@ public class CoinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Player 1")
+        if (other.name == "Player 1")
         {
             other.GetComponent<Player>().points++;
             Destroy(gameObject);
