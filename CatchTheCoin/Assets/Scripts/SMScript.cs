@@ -4,10 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SMScript : MonoBehaviour
-{
-    public void LoadGame() {
-        SceneManager.LoadScene("Game");     
-    } 
+{    //PausenMenü
+    public GameObject PausePanel;
+    public static bool GameIsPaused = false;
+
+    //Allgemeine Scenes
+    public void LoadGame()
+    {
+
+        SceneManager.LoadScene("Game");
+    }
     public void LoadDiscr()
     {
         SceneManager.LoadScene("Spielanleitung");
@@ -16,13 +22,30 @@ public class SMScript : MonoBehaviour
     {
         SceneManager.LoadScene("StartPage");
     }
-    public GameObject PausePanel;
-    public void OpenPausePanel()
+    public void LoadQuit()
     {
-        if(PausePanel != null)
-        {
-            bool isActive = PausePanel.activeSelf;
-            PausePanel.SetActive(!isActive);
-        }
+        SceneManager.LoadScene("Quit");
     }
+
+    //Pausenmenü Aufruf
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                PausePanel.SetActive(false);
+                Time.timeScale = 1f;
+                GameIsPaused = false;
+            }
+            else
+            {
+                PausePanel.SetActive(true);
+                Time.timeScale = 0f;
+                GameIsPaused = true;
+            }
+        }
+
+    }
+
 }

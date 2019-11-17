@@ -154,32 +154,39 @@ public class Player : MonoBehaviour
 
     private void DropBomb()
     {
+        if (bombPrefab)
+        { //Bombs will be placed on the fields Mathf.RoundToInt()
+            Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+            bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+            bombPrefab.transform.rotation);
+            points = points - 3;
+        }
         //NACHFRAGEN!!!
         //UNGLEICH i UND NUR POSITIVE ZAHLEN
 
-        for (int i = 3; i <= 30; i = i + 3)
-        {
-            if (points == i)
-            {
-                if (bombPrefab)
-                { //Bombs will be placed on the fields Mathf.RoundToInt()
-                    Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
-                    bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
-                    bombPrefab.transform.rotation);
-                    points = points - 3;
-                }
-            }
-            //if (points != i)
-            //{
-            //    if (bombPrefab)
-            //    { //Bombs will be placed on the fields Mathf.RoundToInt()
-            //        Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
-            //        bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
-            //        bombPrefab.transform.rotation);
-            //        points = points - 3;
-            //    }
-            //}
-        }
+        //for (int i = 3; i <= 30; i = i + 3)
+        //{
+        //    if (points == i)
+        //    {
+        //        if (bombPrefab)
+        //        { //Bombs will be placed on the fields Mathf.RoundToInt()
+        //            Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+        //            bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+        //            bombPrefab.transform.rotation);
+        //            points = points - 3;
+        //        }
+        //    }
+        //    //if (points != i)
+        //    //{
+        //    //    if (bombPrefab)
+        //    //    { //Bombs will be placed on the fields Mathf.RoundToInt()
+        //    //        Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+        //    //        bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+        //    //        bombPrefab.transform.rotation);
+        //    //        points = points - 3;
+        //    //    }
+        //    //}
+        //}
 
 
     }

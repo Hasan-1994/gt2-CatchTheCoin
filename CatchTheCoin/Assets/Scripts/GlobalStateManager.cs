@@ -1,50 +1,70 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 public class GlobalStateManager : MonoBehaviour
 {
-    public List<GameObject> Players = new List<GameObject>();
-
     private int deadPlayers = 0;
     private int deadPlayerNumber = -1;
+    
 
-    public void PlayerDied(int playerNumber)
+    public void PlayerDied (int playerNumber)
     {
-        deadPlayers++;
+        deadPlayers++; // 1
 
         if (deadPlayers == 1)
-        {
-            deadPlayerNumber = playerNumber;
-            Invoke("CheckPlayersDeath", .3f);
+        { // 2
+            deadPlayerNumber = playerNumber; // 3
+            Invoke("CheckPlayersDeath", .3f); // 4
         }
+
     }
     void CheckPlayersDeath()
     {
+        // 1
         if (deadPlayers == 1)
-        { //Single dead player, he's the winner
-
+        {
+            // 2
             if (deadPlayerNumber == 1)
-            { //P1 dead, P2 is the winner
+            {
                 Debug.Log("Player 2 is the winner!");
-                Restart();
+
+                // 3
             }
             else
-            { //P2 dead, P1 is the winner
+            {
                 Debug.Log("Player 1 is the winner!");
-                Restart();
             }
+            // 4
         }
         else
-        {  //Multiple dead players, it's a draw
+        {
             Debug.Log("The game ended in a draw!");
-            Restart();
         }
     }
-    //Scene Manager
-    public void Restart()
+    //Überarbeiten
+    private void OnGUI()
     {
-        SceneManager.LoadScene("Game");
+        if (deadPlayers == 1)
+        {
+            // 2
+            if (deadPlayerNumber == 1)
+            {
+                GUI.contentColor = Color.blue;
+                GUI.Label(new Rect(150, 250, 700, 70), "Player 2 is the winner!");
+
+                // 3
+            }
+            else if (deadPlayerNumber == 2)
+            {
+                GUI.contentColor = Color.red;
+                GUI.Label(new Rect(150, 250, 700, 70), "Player 1 is the winner!");
+            }
+            // 4
+        else
+        {
+                GUI.contentColor = Color.black;
+                GUI.Label(new Rect(150, 250, 700, 70), "Player 1 is the winner!");
+            }
+        }
     }
 }
