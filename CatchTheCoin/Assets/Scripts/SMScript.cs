@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SMScript : MonoBehaviour
 {    //PausenMenü
     public GameObject PausePanel;
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = false;    
 
     //Allgemeine Scenes
     public void LoadGame()
@@ -46,6 +47,11 @@ public class SMScript : MonoBehaviour
             }
         }
 
+        }
+    void Start()
+    {
+
     }
+
 
 }

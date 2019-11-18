@@ -33,7 +33,7 @@ public class Bomb : MonoBehaviour
         GetComponent<MeshRenderer>().enabled = false;
         exploded = true;        
         transform.Find("Collider").gameObject.SetActive(false); //3
-        Destroy(gameObject, .3f); //4
+        Destroy(gameObject, .1f); //4
 
 
 
@@ -46,7 +46,7 @@ public class Bomb : MonoBehaviour
             //2
             RaycastHit hit;
             //3
-            Physics.Raycast(transform.position + new Vector3(0, .5f, 0), direction, out hit,
+            Physics.Raycast(transform.position + new Vector3(0, .1f, 0), direction, out hit,
               i, levelMask);
 
             //4
@@ -63,7 +63,7 @@ public class Bomb : MonoBehaviour
             }
 
             //8
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(.05f);
         }
 
     }

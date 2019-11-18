@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
 
 
     private int bombs = 2;
-    //Amount of bombs the player has left to drop, gets decreased as the player
-    //drops a bomb, increases as an owned bomb explodes
 
     //Prefabs
     public GameObject bombPrefab;
@@ -68,9 +66,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Updates Player 1's movement and facing rotation using the WASD keys and drops bombs using Space
-    /// </summary>
+
     private void UpdatePlayer1Movement()
     {
         if (Input.GetKey(KeyCode.W))
@@ -107,9 +103,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Updates Player 2's movement and facing rotation using the arrow keys and drops bombs using Enter or Return
-    /// </summary>
     private void UpdatePlayer2Movement()
     {
         if (Input.GetKey(KeyCode.UpArrow))
@@ -147,20 +140,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Drops a bomb beneath the player
-    /// </summary>
-    /// 
+
 
     private void DropBomb()
     {
-        if (bombPrefab)
-        { //Bombs will be placed on the fields Mathf.RoundToInt()
-            Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
-            bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
-            bombPrefab.transform.rotation);
-            points = points - 3;
-        }
+        //if (bombPrefab)
+        //{ //Bombs will be placed on the fields Mathf.RoundToInt()
+        //    Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+        //    bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+        //    bombPrefab.transform.rotation);
+        //    points = points - 3;
+        //}
         //NACHFRAGEN!!!
         //UNGLEICH i UND NUR POSITIVE ZAHLEN
 
@@ -187,7 +177,31 @@ public class Player : MonoBehaviour
         //    //    }
         //    //}
         //}
-
+        
+        //for (uint i = 3; i <=30; i = i + 3)
+        //{
+        //    if(points <= i)
+        //    {
+        //        if (bombPrefab)
+        //        { //Bomben werden genau in die Mitte der Felder platziert. 
+        //            Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+        //            bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+        //            bombPrefab.transform.rotation);
+        //            points = points - 3;
+        //        }
+        //    }
+        //}
+        //Wenn Punkt größer gleich 3 Dann lege bombe!
+        if(points >= 3)
+        {
+            if (bombPrefab)
+            { //Bomben werden genau in die Mitte der Felder platziert. 
+                Instantiate(bombPrefab, new Vector3(Mathf.RoundToInt(myTransform.position.x),
+                bombPrefab.transform.position.y, Mathf.RoundToInt(myTransform.position.z)),
+                bombPrefab.transform.rotation);
+                points -= 3;
+            }
+        }
 
     }
 

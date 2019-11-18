@@ -366,7 +366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341, y: 0}
+  m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 25, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209521468
@@ -449,8 +449,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 273105768}
   m_HandleRect: {fileID: 273105767}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.60024357
+  m_Value: 0.999903
+  m_Size: 0.6000782
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -610,8 +610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.7999878, y: 22.5}
-  m_SizeDelta: {x: -129.8, y: -148.2}
+  m_AnchoredPosition: {x: -0.7000122, y: 0}
+  m_SizeDelta: {x: -81.8, y: -148.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &336112616
 MonoBehaviour:
@@ -1188,8 +1188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.13700001}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.2, y: 44.55686}
-  m_SizeDelta: {x: 580, y: 443.1}
+  m_AnchoredPosition: {x: -5, y: 44.512886}
+  m_SizeDelta: {x: 631.2, y: 443.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &930061399
 MonoBehaviour:
@@ -1222,16 +1222,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "Sammle so viele Coins wie m\xF6glich, um Bomben legen zu k\xF6nnen. Die
-    gelegte Bombe dient dazu, dass du dein Gegner ausschalten kannst. Hierbei ist
-    zu beachten, dass jede Bombe, die du legst auch dich selber eliminieren kann.\nW\xE4hle
-    deine Z\xFCge bedacht und gewinne das Spiel!!\n\nSpielanleitung:\nSpieler 1:\n\tPfeil
-    nach oben \t\t- \tNach oben\n\tPfeil nach unten \t-  \tnach unten\n\tPfeil nach
-    rechts \t- \tnach rechts\n\tPfeil nach links \t\t- \tnach links\n\tReturn \t\t\t\t-
-    \tBombe Legen\n\nSpieler 2:\n\tW\t\t\t- nach Oben\n\ts\t\t\t- nach unten\n\td\t\t\t-
-    nach rechts\n\ta\t\t\t- nach links\n\tspace \t\t- Bombe Legen\nCatch the Coin
-    ist ein multiplayer spiel, welches im Rahmen der Lehrveranstalltung \"GT2 Games
-    Engine\" entwickelt wurde.\n"
+  m_Text: "Sammle so viele Coins wie m\xF6glich, um eine Bomben legen zu k\xF6nnen
+    brauchst du jedoch mindestens 3 Coins. \n\nDie gelegte Bombe dient dazu, dass
+    du dein Gegner auszuschalten. \nHierbei ist zu beachten, dass jede Bombe, die
+    du legst, auch dich selber eliminieren kann.\n\nW\xE4hle deine Z\xFCge bedacht
+    und gewinne das Spiel!!\n\n\n\nSpielanleitung:\nSpieler 1:\n\tPfeil nach oben
+    \t\t- \tNach oben\n\tPfeil nach unten \t-  \tnach unten\n\tPfeil nach rechts \t-
+    \tnach rechts\n\tPfeil nach links \t\t- \tnach links\n\tReturn \t\t\t\t- \tBombe
+    Legen\n\nSpieler 2:\n\tW\t\t\t- nach Oben\n\ts\t\t\t- nach unten\n\td\t\t\t- nach
+    rechts\n\ta\t\t\t- nach links\n\tspace \t\t- Bombe Legen\n\n\nCatch the Coin ist
+    ein multiplayer spiel, welches im Rahmen der Lehrveranstalltung \"GT2 Games Engine\"
+    entwickelt wurde.\n"
 --- !u!222 &930061400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1352,8 +1353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000083444}
-  m_SizeDelta: {x: 722, y: 406}
+  m_AnchoredPosition: {x: 0, y: 2.25}
+  m_SizeDelta: {x: 738, y: 410.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827359026
 MonoBehaviour:
