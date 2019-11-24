@@ -10,36 +10,31 @@ public class GlobalStateManager : MonoBehaviour
     public GameObject DrawPanel;
 
 
-    public void PlayerDied (int playerNumber)
+    public void PlayerDied(int playerNumber)
     {
-        deadPlayers++; // 1
+        deadPlayers++;
 
         if (deadPlayers == 1)
-        { // 2
-            deadPlayerNumber = playerNumber; // 3
-            Invoke("CheckPlayersDeath", .3f); // 4
+        {
+            deadPlayerNumber = playerNumber;
+            Invoke("CheckPlayersDeath", .3f);
         }
 
     }
     void CheckPlayersDeath()
     {
-        // 1
         if (deadPlayers == 1)
         {
-            // 2
             if (deadPlayerNumber == 1)
             {
                 Debug.Log("Player 2 is the winner!");
                 WinnerPanel1.SetActive(true);
-
-                // 3
             }
-            else
+            if (deadPlayerNumber == 2)
             {
                 Debug.Log("Player 1 is the winner!");
                 WinnerPanel2.SetActive(true);
             }
-            // 4
         }
         else
         {

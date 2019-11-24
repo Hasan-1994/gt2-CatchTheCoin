@@ -7,12 +7,11 @@ using UnityEngine.SceneManagement;
 public class SMScript : MonoBehaviour
 {    //PausenMenü
     public GameObject PausePanel;
-    public static bool GameIsPaused = false;    
+    public static bool GameIsPaused = false;
 
     //Allgemeine Scenes
     public void LoadGame()
     {
-
         SceneManager.LoadScene("Game");
     }
     public void LoadDiscr()
@@ -47,7 +46,7 @@ public class SMScript : MonoBehaviour
             }
         }
 
-        }
+    }
     void Start()
     {
 

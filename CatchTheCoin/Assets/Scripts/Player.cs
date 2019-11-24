@@ -6,41 +6,32 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GlobalStateManager globalManager;
-    //Player parameters
-    [Range(1, 2)] //Enables a nifty slider in the editor
+    //Spieler Parameter
+    [Range(1, 2)]
     public int playerNumber = 1;
-    //Indicates what player this is: P1 or P2
-    public float moveSpeed = 5f;
+    public float moveSpeed = 3f;
     public bool canDropBombs = true;
-    //Can the player drop bombs?
     public bool canMove = true;
-    //Can the player move?
     public bool dead = false;
-    //Collect Points
     public int points;
 
+    //private int bombs = 2;
 
 
-    private int bombs = 2;
-
-    //Prefabs
     public GameObject bombPrefab;
 
-    //Cached components
+
     private Rigidbody rigidBody;
     private Transform myTransform;
     private Animator animator;
 
-    // Use this for initialization
     void Start()
     {
-        //Cache the attached components for better performance and less typing
         rigidBody = GetComponent<Rigidbody>();
         myTransform = transform;
         animator = myTransform.Find("PlayerModel").GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateMovement();
@@ -51,11 +42,10 @@ public class Player : MonoBehaviour
         animator.SetBool("Walking", false);
 
         if (!canMove)
-        { //Return if player can't move
+        {
             return;
         }
 
-        //Depending on the player number, use different input for moving
         if (playerNumber == 1)
         {
             UpdatePlayer1Movement();
@@ -67,75 +57,76 @@ public class Player : MonoBehaviour
     }
 
 
+    //Spieler 1 Controlling
     private void UpdatePlayer1Movement()
     {
         if (Input.GetKey(KeyCode.W))
-        { //Up movement
+        { //Hoch
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, moveSpeed);
             myTransform.rotation = Quaternion.Euler(0, 0, 0);
             animator.SetBool("Walking", true);
         }
 
         if (Input.GetKey(KeyCode.A))
-        { //Left movement
+        { //Links
             rigidBody.velocity = new Vector3(-moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
             myTransform.rotation = Quaternion.Euler(0, 270, 0);
             animator.SetBool("Walking", true);
         }
 
         if (Input.GetKey(KeyCode.S))
-        { //Down movement
+        { //Runter
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -moveSpeed);
             myTransform.rotation = Quaternion.Euler(0, 180, 0);
             animator.SetBool("Walking", true);
         }
 
         if (Input.GetKey(KeyCode.D))
-        { //Right movement
+        { //Rechts
             rigidBody.velocity = new Vector3(moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
             myTransform.rotation = Quaternion.Euler(0, 90, 0);
             animator.SetBool("Walking", true);
         }
 
         if (canDropBombs && Input.GetKeyDown(KeyCode.Space))
-        { //Drop bomb
+        { //Lege Bombe
             DropBomb();
         }
     }
 
+    //Spieler 2 Controlling
     private void UpdatePlayer2Movement()
     {
         if (Input.GetKey(KeyCode.UpArrow))
-        { //Up movement
+        { //Hoch
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, moveSpeed);
             myTransform.rotation = Quaternion.Euler(0, 0, 0);
             animator.SetBool("Walking", true);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
-        { //Left movement
+        { //Links
             rigidBody.velocity = new Vector3(-moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
             myTransform.rotation = Quaternion.Euler(0, 270, 0);
             animator.SetBool("Walking", true);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
-        { //Down movement
+        { //Runter
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -moveSpeed);
             myTransform.rotation = Quaternion.Euler(0, 180, 0);
             animator.SetBool("Walking", true);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
-        { //Right movement
+        { //Rechts
             rigidBody.velocity = new Vector3(moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
             myTransform.rotation = Quaternion.Euler(0, 90, 0);
             animator.SetBool("Walking", true);
         }
 
         if (canDropBombs && (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return)))
-        { //Drop Bomb. For Player 2's bombs, allow both the numeric enter as the return key or players 
-            //without a numpad will be unable to drop bombs
+        { //Lege Bombe
             DropBomb();
         }
     }
@@ -177,7 +168,7 @@ public class Player : MonoBehaviour
         //    //    }
         //    //}
         //}
-        
+
         //for (uint i = 3; i <=30; i = i + 3)
         //{
         //    if(points <= i)
@@ -192,7 +183,8 @@ public class Player : MonoBehaviour
         //    }
         //}
         //Wenn Punkt größer gleich 3 Dann lege bombe!
-        if(points >= 3)
+
+        if (points >= 3)
         {
             if (bombPrefab)
             { //Bomben werden genau in die Mitte der Felder platziert. 
@@ -209,13 +201,11 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Explosion"))
         {
-            Debug.Log("Player " + playerNumber + " hit by explosion!");
-            dead = true; // 1
-            globalManager.PlayerDied(playerNumber); // 2
-            Destroy(gameObject); // 3 
+            Debug.Log("Spieler " + playerNumber + " wurde eliminiert!");
+            dead = true;
+            globalManager.PlayerDied(playerNumber);
+            Destroy(gameObject);
         }
-
-
     }
 
     private void OnGUI()
@@ -223,13 +213,13 @@ public class Player : MonoBehaviour
         if (playerNumber == 1)
         {
             GUI.contentColor = Color.red;
-            GUI.Label(new Rect(20, 10, 100, 20), "Player 1 : " + points);
+            GUI.Label(new Rect(20, 10, 100, 20), "Spieler 1 : " + points);
         }
 
         if (playerNumber == 2)
         {
             GUI.contentColor = Color.blue;
-            GUI.Label(new Rect(635, 10, 200, 20), "Player 2 : " + points);
+            GUI.Label(new Rect(635, 10, 200, 20), "Spieler 2 : " + points);
         }
 
     }
