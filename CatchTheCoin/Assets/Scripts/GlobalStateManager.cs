@@ -5,6 +5,7 @@ public class GlobalStateManager : MonoBehaviour
 {
     private int deadPlayers = 0;
     private int deadPlayerNumber = -1;
+    private bool coins;
     public GameObject WinnerPanel1;
     public GameObject WinnerPanel2;
     public GameObject DrawPanel;
@@ -28,18 +29,22 @@ public class GlobalStateManager : MonoBehaviour
             if (deadPlayerNumber == 1)
             {
                 Debug.Log("Player 2 is the winner!");
-                WinnerPanel1.SetActive(true);
+                WinnerPanel2.SetActive(true);
             }
             if (deadPlayerNumber == 2)
             {
                 Debug.Log("Player 1 is the winner!");
-                WinnerPanel2.SetActive(true);
+                WinnerPanel1.SetActive(true);
             }
         }
         else
         {
             Debug.Log("The game ended in a draw!");
             DrawPanel.SetActive(true);
+        }
+        if(coins == false)
+        {
+            Debug.Log("Finish");
         }
     }
 

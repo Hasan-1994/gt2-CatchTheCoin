@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
+    public GlobalStateManager globalManager;
     public GameObject Coins;
+    public bool destroyed = true;
+    public GameObject DrawPanel;
     // Start is called before the first frame update
     void Start()
     {
-      
     }
 
     // Update is called once per frame
@@ -32,7 +34,12 @@ public class CoinScript : MonoBehaviour
             other.GetComponent<Player>().points++;
             Destroy(gameObject);
         }
-    }
 
+       if(destroyed == false)
+        {
+            Debug.Log("SDASDA");
+            DrawPanel.SetActive(true);
+        }
+    }
 
 }
