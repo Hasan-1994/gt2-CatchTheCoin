@@ -7,6 +7,8 @@ Ich dachte an ein Multiplayer Game, welches sich in der Vogelperspektive abspiel
 Sinn dabei ist, dass die Spieler schnell und Klug die Bomben legen, damit der Gegner eliminiert wird. 
 
 Das Spielfeld und die Spiel-Charaktere habe ich mir aus dem Internet gezogen, daher ist mein Repo privat.
+
+
 Link: https://koenig-media.raywenderlich.com/uploads/2017/09/Bomberman-HowTo-Starter-Project-1.zip
 
 
@@ -27,6 +29,14 @@ Dies könnte man in 3 Schwierigkeitsstufen machen. „Leicht“, „Mittel“, �
 
 Neue PowerUp’s wären auch noch ein Feature was erweiterte werden kann, hier könnte eine neue Kategorie dazu kommen, welches sich Boost nennt. Beim Aufsammeln von Boost’s erfolgt ein Upgrade des Spielers, verschieden Boost fördern die Eigenschaften des Spielers entweder für eine gewisse Zeit oder für den Rest des Spieles. Diese Entscheidung hängt von der Art des Boost’s ab. 
 Beispielsweise, der Spieler kann durch Benutzung des Speed-Boosts x0.5- Fach schneller laufen als die anderen Spieler oder der Spieler kann mehr Schaden erzeugen.
+
+
+
+
+Funktionalitäten habe ich durch viel Recherche und Tutorials entwickelt.
+
+
+
 
 # Must have?
 - 2 Players
